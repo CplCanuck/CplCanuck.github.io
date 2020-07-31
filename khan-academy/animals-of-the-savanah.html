@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project: Interactive slideshow</title>
+        <link href='https://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+        <style>
+            body{
+                background-color: rgb(94, 168, 88);
+                color:rgb(32, 16, 77);
+            }
+            
+            #slideshow-div{
+                font-size: 20px;
+                text-align: center;
+                font-family: Merienda One, Helvetica, sans-serif;
+            }
+            
+            #title{
+                margin:5px;
+                font-size: 30px;
+            }
+            #caption{
+                margin: 5px;
+            }
+            
+            .slideshow-buttons{
+                font-size: 20px;
+                color:rgb(32, 16, 77);
+                padding: 5px;
+                margin-bottom: 5px;
+                border-radius: 2px;
+                border: none;
+                background-color:lightgreen;
+                font-family: Merienda One, Helvetica, sans-serif;
+            }
+            
+            .slideshow{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                border: solid;
+                border-width: 3px;
+                border-color: rgb(32, 16, 77);
+            }
+        </style>
+    </head>
+    <body>
+    <div id="slideshow-div">
+        <p id="title"> Animals of the Savanah </p>
+        <button id="prev-button" class = "slideshow-buttons" type="button">← Prev</button>
+        <button id="next-button" class="slideshow-buttons" type="button">Next →</button>
+        <p id="caption"> "Caption" </p>
+        <img class = "slideshow" src="https://upload.wikimedia.org/wikipedia/commons/1/11/Cheetah_Kruger.jpg" width="400" alt="Cheetah">
+        <img class = "slideshow" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Antidorcas_marsupialis%2C_male_%28Etosha%2C_2012%29.jpg" width="400" alt="Gazelle">
+        <img class = "slideshow" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Porc_formiguer.JPG" width="400" alt="Aardvark">
+        <img class = "slideshow" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Blue_Wildebeest%2C_Ngorongoro.jpg/1200px-Blue_Wildebeest%2C_Ngorongoro.jpg" width="400" alt="Wildebeest">
+        <img class = "slideshow" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Spotted_hyena_%28Crocuta_crocuta%29.jpg/1200px-Spotted_hyena_%28Crocuta_crocuta%29.jpg" width="400" alt="Hyena">
+        <img class="slideshow" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg/1200px-Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg" width="400" alt="African Elephant">        
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    
+    var $slideshowPics = $("img.slideshow");
+    var currentPicNum = 0;
+    $slideshowPics.hide();
+    $slideshowPics.eq(currentPicNum).show();
+    
+    $("#caption")
+        .html("\"" + 
+            $slideshowPics
+                .eq(currentPicNum)
+                .attr("alt")
+            + "\"")
+    
+    //Slideshow Previous
+    $("#prev-button").on("click", function(){
+        $slideshowPics.eq(currentPicNum).slideUp();
+        
+        if(currentPicNum <= 0){
+            currentPicNum = $slideshowPics.length-1;
+        } else {
+            currentPicNum--;
+        }
+        
+        $slideshowPics
+            .eq(currentPicNum)
+            .delay(350)
+            .slideDown(function(){
+                $("#caption")
+                    .html("\"" + 
+                    $slideshowPics
+                        .eq(currentPicNum)
+                        .attr("alt")
+                    + "\"")
+        });
+    })
+    
+    //Slideshow Next
+    $("#next-button").on("click", function(){
+        $slideshowPics.eq(currentPicNum).slideUp();
+        
+        if(currentPicNum >= $slideshowPics.length-1){
+            currentPicNum = 0;
+        } else {
+            currentPicNum++;
+        }
+        
+        $slideshowPics
+            .eq(currentPicNum)
+            .delay(350)
+            .slideDown(function(){
+                $("#caption")
+                    .html("\"" + 
+                    $slideshowPics
+                        .eq(currentPicNum)
+                        .attr("alt")
+                    + "\"")
+        });
+    })
+    
+    </script> 
+    
+    </body>
+</html>
