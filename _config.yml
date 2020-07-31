@@ -1,2 +1,3 @@
 name: Home of the FastestCodeInTheWest
 markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
