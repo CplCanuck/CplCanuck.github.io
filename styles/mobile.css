@@ -1,0 +1,24 @@
+@media only screen and (max-width: 639px) {
+    body {
+        font-size: 16px;
+    }
+
+    header {
+        padding: 0.75em;
+    }
+
+    #name {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    .icon, .slash {
+        display: none;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 0.5em;
+    }
+}

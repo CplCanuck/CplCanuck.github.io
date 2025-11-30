@@ -1,0 +1,89 @@
+:root {
+    /* Colors from Catcuppin Mocha: https://github.com/catppuccin/catppuccin */
+    --base: #1e1e2e;
+    --crust: #11111b;
+    --text: #cdd6f4;
+    --blue: #89b4fa;
+    --green: #a6e3a1;
+    --yellow: #f9e2af;
+    --red: #f38ba8;
+}
+
+@font-face {
+    font-family: Agave;
+    src: url("../fonts/Agave/AgaveNerdFontMono-Regular.ttf");
+}
+
+@font-face {
+    font-family: Agave;
+    src: url("../fonts/Agave/AgaveNerdFontPropo-Bold.ttf");
+    font-weight: bold;
+}
+
+body {
+    background-color: #1e1e2e;
+
+    font-family: Agave, "Google Sans Code", 'Courier New', monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+
+    color: var(--text)
+}
+
+h1 {
+    font-size: 1.75em;
+}
+
+header {
+    background-color: var(--crust);
+    padding: 1em;
+    box-sizing: content-box;
+}
+
+header p {
+    margin: 0;
+}
+
+#name {
+    margin: 0 0 0.2em 0;
+    border-bottom: 0.2em solid var(--text);
+    border-radius: 0.2em;
+    font-size: 1em;
+}
+
+.icon {
+    filter: brightness(0)
+        saturate(100%)
+        invert(82%)
+        sepia(4%)
+        saturate(1998%)
+        hue-rotate(195deg)
+        brightness(106%)
+        contrast(91%);
+    
+    width: 1.5em;
+}
+
+a p {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+a:visited p {
+    color: var(--blue);
+}
+
+a:hover p {
+    color: var(--red);
+}
+
+.main-container {
+    margin: 1em;
+}
+
+.main-container h1 {
+    border-bottom: 0.2em solid var(--text);
+    border-radius: 0.2em;
+}
