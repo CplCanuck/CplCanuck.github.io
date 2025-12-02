@@ -3,9 +3,22 @@
         font-size: 18px;
     }
 
+    #skip a:focus {
+        left: 11em; /* Magic Number, about the size of the sidebar */
+    }
+
+    header {
+        position: fixed;
+        height: 100vh;
+    }
+
+    .breadcrumb {
+        font-size: 1em;
+    }
+
     .page-container {
         display: flex;
-        height: 100vh;
+        height: 100%;
     }
 
     .header-container {
@@ -36,5 +49,14 @@
 
     .main-container {
         flex-grow: 1;
+        margin-left: 10.25em; /* Magic Number, about the size of the sidebar */
+    }
+
+    #intro-video {
+        width: 90%;
+    }
+
+    #contact-form fieldset {
+        height: 50vh;
     }
 }
