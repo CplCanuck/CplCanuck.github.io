@@ -145,6 +145,21 @@ footer {
     height: 90%;
 }
 
+.contrast-buffer {
+    display: inline-block;
+    margin-top: 0.5em;
+}
+
+.contrast-buffer:focus-within {
+    border: solid 0.2em var(--blue);
+    border-radius: 0.2rem;
+}
+
+input:focus {
+    border: solid 0.2em var(--crust);
+    border-radius: 0.2rem;
+}
+
 #showcase-pic img {
     width: 100%;
     border: solid 0.2em var(--crust);
