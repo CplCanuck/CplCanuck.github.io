@@ -4,6 +4,7 @@
     --crust: #11111b;
     --text: #cdd6f4;
     --blue: #89b4fa;
+    --teal: #94e2d5;
     --green: #a6e3a1;
     --yellow: #f9e2af;
     --red: #f38ba8;
@@ -79,6 +80,37 @@ header {
 
 header p {
     margin: 0;
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+#call-to-action > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+    background-color: var(--green);
+    border-radius: 0.2rem;
+}
+
+#call-to-action p {
+    color: var(--crust);
+    text-decoration: none;
+}
+
+#call-to-action .icon {
+    filter: brightness(0)
+        saturate(100%)
+        invert(4%)
+        sepia(6%)
+        saturate(4697%)
+        hue-rotate(201deg)
+        brightness(95%)
+        contrast(94%);
+}
+
+#call-to-action:hover div{
+    background-color: var(--teal);
 }
 
 #name {
@@ -130,7 +162,7 @@ footer {
     width: 100%;
     background-color: var(--crust);
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     font-size: 0.75em;
     z-index: 1;
 }
