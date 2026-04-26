@@ -38,10 +38,6 @@
         flex-grow: 1;
     }
 
-    #intro-video {
-        width: 100%;
-    }
-
     #contact-form fieldset {
         height: 50vh;
     }

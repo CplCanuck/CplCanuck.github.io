@@ -56,10 +56,6 @@
         margin-left: 10.25em; /* Magic Number, about the size of the sidebar */
     }
 
-    #intro-video {
-        width: 90%;
-    }
-
     #contact-form fieldset {
         height: 50vh;
     }
