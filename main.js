@@ -1,129 +1,114 @@
-import products from './data/data-minifed.json' with { type: 'json' };
+import data from './data/data-minifed.json' with { type: 'json' };
+const products = data.products
 
 document.addEventListener("DOMContentLoaded", main);
 
 function main(){
     // Set the number of products we want to display, or less if there aren't enough products
     const numberOfProductsToDisplay = (products.length>=20)? 20 : products.length;
-    console.log(products.length, numberOfProductsToDisplay);
 
     /* -= TailwindCSS Stylings =- */
     /*
-    <li class="bg-gray-700 w-50 p-3 rounded-lg border border-white">
-        <img src="" alt="" class="bg-white rounded-md border border-white">
-        <div class="grid grid-cols-4 mt-2 p-1 rounded-md border border-white">
-            <p class="col-span-3 row-span-1">Title</p>
-            <p class="col-span-3 row-start-2">$pri.ce</p>
-            <p class="row-span-2 text-center flex justify-center items-center text-gray-200 bg-gray-500 border border-blue-300 rounded-md">+</p>
+   <li class="flex flex-col bg-gray-700 w-50 p-3 rounded-lg border border-white">
+        <img src="https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp" alt="" class="bg-white rounded-md border border-white">
+        <div class="flex mt-2 p-1 rounded-md border border-white grow">
+            <div class="flex flex-col grow">
+                <p class="font-bold">Title</p>
+                <p class="font-thin">$pri.ce</p>
+            </div>
+            <button class="w-10 h-10 text-gray-200 bg-gray-500 border border-blue-300 rounded-md">+</button>
         </div>
     </li>
     */
-    const liStyles = ["bg-gray-700",
-                            "w-50",
-                            "p-3",
-                            "rounded-lg",
-                            "border",
-                            "border-white"];
-    const imgStyles = ["bg-white",
-                            "rounded-md",
-                            "border",
-                            "border-white"];
+    const liStyles = ["flex", "flex-col", "bg-gray-700", "w-50", "p-3", "rounded-lg", "border", "border-white"];
 
-    const divStyles = ["grid",
-                            "grid-cols-4",
-                            "mt-2",
-                            "p-1",
-                            "rounded-md",
-                            "border",
-                            "border-white"];
+    const imgStyles = ["bg-white", "rounded-md", "border", "border-white"];
 
-    const titleStyles = ["col-span-3",
-                            "row-span-1"];
+    const div1Styles = ["flex", "mt-2", "p-1", "rounded-md", "border", "border-white", "grow"];
 
-    const priceStyles = ["col-span-3",
-                            "row-start-2"];
+    const div2Styles = ["flex", "flex-col", "grow", "mr-0.5"];
 
-    const buttonStyles = ["row-span-2",
-                                "text-center",
-                                "flex",
-                                "justify-center",
-                                "items-center",
-                                "text-gray-200",
-                                "bg-gray-500",
-                                "border",
-                                "border-blue-300",
-                                "rounded-md"];
+    const titleStyles = ["font-bold"];
+
+    const priceStyles = ["font-thin"];
+
+    const buttonStyles = ["flex-none", "w-10", "h-10", "text-gray-200", "bg-gray-500", "border", "border-blue-300", "rounded-md"];
 
 
 
     // Get node to insert under
-    const myNode = document.querySelector("ul#productShelf");
+    const productShelf = document.querySelector("ul#productShelf");
 
     // Loop through products (up to specified amount)
     for(let i = 0; i < numberOfProductsToDisplay; i++){
-        myNode.appendChild(createCard(products[i].thumbnail, products[i].title, products[i].price));
+        productShelf.appendChild(createCard(products[i]));
     }
 
-    function createCard(imgSource, title, price){
+    function createCard(product){
         const li = document.createElement("li");
         for(let c of liStyles){ li.classList.add(c); }
 
-
-
-
-
-
-
-    /*                                                                      !!!!!!
-    Code untouched past this point.                                         !!!!!!
-    Changes still need to made for assignment 1                             !!!!!!
-    */
-
-
-
-
-
-
-
-        li.appendChild(createCardImage(imgSource));
-
-        const div = createCardBody();
-        div.appendChild(createCardTitle(title));
-        div.appendChild(createCardPrice(price));
-
-        li.appendChild(div);
+        li.appendChild(createCard_Image(product.thumbnail));
+        li.appendChild(createCard_Div1(product));
 
         return li;
     }
 
-    function createCardImage(source){
+    function createCard_Image(source){
         const img = document.createElement("img");
-        img.classList.add("product-card__image");
+        for(let c of imgStyles){ img.classList.add(c); }
         img.src = source;
 
         return img;
     }
 
-    function createCardBody(){
+    function createCard_Div1(product){
         const div = document.createElement("div");
-        div.classList.add("product-card__body");
+        for(let c of div1Styles){ div.classList.add(c); }
+
+        div.appendChild(createCard_Div2(product));
+        div.appendChild(createCard_Button("+"));
 
         return div;
     }
 
-    function createCardTitle(text){
-        const h3 = document.createElement("h3");
-        h3.classList.add("product-card__title");
-        h3.textContent = text;
+    function createCard_Div2(product){
+        const div = document.createElement("div");
+        for(let c of div2Styles){ div.classList.add(c); }
 
-        return h3;
+        div.appendChild(createCard_Title(product.title));
+        div.appendChild(document.createElement("hr"));
+        div.appendChild(createCard_Price(product.price));
+
+        return div;
     }
 
-    function createCardPrice(price){
+    function createCard_Title(text){
         const p = document.createElement("p");
-        p.classList.add("product-card__price");
-        p.textContent = price;
+        for(let c of titleStyles){ p.classList.add(c); }
+        p.textContent = text;
 
         return p;
-}
+    }
+
+    function createCard_Price(price){
+        const p = document.createElement("p");
+        for(let c of priceStyles){ p.classList.add(c); };
+        p.textContent = "$" + price;
+
+        return p;
+    }
+
+    function createCard_Button(text){
+        const btn = document.createElement("button");
+        for(let c of buttonStyles){ btn.classList.add(c); }
+        btn.textContent = text;
+        btn.addEventListener("click", buttonAlert);
+
+        return btn;
+    }
+
+    function buttonAlert(){
+        alert("Click");
+    }
 }
