@@ -20,19 +20,19 @@ function main(){
         </div>
     </li>
     */
-    const liStyles = ["flex", "flex-col", "bg-gray-700", "w-50", "p-3", "rounded-lg", "border", "border-white"];
+    const liStyles = ["flex", "flex-col", "bg-mist-800", "w-50", "p-4", "rounded-xl", "border", "border-mist-700", "shadow-md"];
 
-    const imgStyles = ["bg-white", "rounded-md", "border", "border-white"];
+    const imgStyles = ["bg-neutral-50", "rounded-lg", "overflow-hidden", "object-cover"];
 
-    const div1Styles = ["flex", "mt-2", "p-1", "rounded-md", "border", "border-white", "grow"];
+    const div1Styles = ["flex", "mt-3", "p-1.5", "rounded-lg", "bg-mist-300", "border", "border-mist-700/50", "grow"];
 
-    const div2Styles = ["flex", "flex-col", "grow", "mr-0.5"];
+    const div2Styles = ["flex", "flex-col", "grow", "mr-1"];
 
-    const titleStyles = ["font-bold"];
+    const titleStyles = ["font-semibold", "text-mist-900", "tracking-tight"];
 
-    const priceStyles = ["font-thin"];
+    const priceStyles = ["font-medium", "text-mist-600", "text-sm"];
 
-    const buttonStyles = ["flex-none", "w-10", "h-10", "text-gray-200", "bg-gray-500", "border", "border-blue-300", "rounded-md"];
+    const buttonStyles = ["flex-none", "w-10", "h-10", "text-white", "bg-emerald-700", "hover:bg-emerald-600", "active:bg-emerald-800", "transition-colors", "border", "border-emerald-400/30", "rounded-lg", "flex", "items-center", "center", "justify-center"];
 
 
 
