@@ -48,16 +48,18 @@ function main(){
         const li = document.createElement("li");
         for(let c of liStyles){ li.classList.add(c); }
 
-        li.appendChild(createCard_Image(product.thumbnail));
+        li.appendChild(createCard_Image(product));
         li.appendChild(createCard_Div1(product));
 
         return li;
     }
 
-    function createCard_Image(source){
+    function createCard_Image(product){
         const img = document.createElement("img");
         for(let c of imgStyles){ img.classList.add(c); }
-        img.src = source;
+        img.src = product.thumbnail;
+
+        img.addEventListener("click", ()=>{ alert(`Product ID: ${product.id}`)});
 
         return img;
     }
@@ -67,7 +69,7 @@ function main(){
         for(let c of div1Styles){ div.classList.add(c); }
 
         div.appendChild(createCard_Div2(product));
-        div.appendChild(createCard_Button("+"));
+        div.appendChild(createCard_Button("+", product));
 
         return div;
     }
@@ -99,16 +101,17 @@ function main(){
         return p;
     }
 
-    function createCard_Button(text){
+    function createCard_Button(buttonText, product){
         const btn = document.createElement("button");
         for(let c of buttonStyles){ btn.classList.add(c); }
-        btn.textContent = text;
-        btn.addEventListener("click", buttonAlert);
+        btn.textContent = buttonText;
+        btn.addEventListener("click", ()=>{ alert(`Product ID: ${product.id} - Title: ${product.title}`); });
 
         return btn;
     }
 
-    function buttonAlert(){
-        alert("Click");
-    }
+    // For when we figure out how to pass in parameters
+    /* function buttonOnClick(){}
+    
+    function imgOnClick(){} */
 }
