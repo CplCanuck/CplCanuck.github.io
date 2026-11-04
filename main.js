@@ -20,11 +20,11 @@ function main(){
         </div>
     </li>
     */
-    const liStyles = ["flex", "flex-col", "bg-mist-800", "w-50", "p-4", "rounded-xl", "border", "border-mist-700", "shadow-md"];
+    const liStyles = ["flex", "flex-col", "bg-mist-800", "w-50", "p-3", "rounded-xl", "border", "border-mist-700", "shadow-md"];
 
-    const imgStyles = ["bg-neutral-50", "rounded-lg", "overflow-hidden", "object-cover"];
+    const imgStyles = ["bg-neutral-50", "rounded-t-lg", "overflow-hidden", "object-contain"];
 
-    const div1Styles = ["flex", "mt-3", "p-1.5", "rounded-lg", "bg-mist-300", "border", "border-mist-700/50", "grow"];
+    const div1Styles = ["flex", "mt-1", "p-1.5", "rounded-b-lg", "bg-mist-300", "border", "border-mist-700/50", "grow"];
 
     const div2Styles = ["flex", "flex-col", "grow", "mr-1"];
 
@@ -32,7 +32,7 @@ function main(){
 
     const priceStyles = ["font-medium", "text-mist-600", "text-sm"];
 
-    const buttonStyles = ["flex-none", "w-10", "h-10", "text-white", "bg-emerald-700", "hover:bg-emerald-600", "active:bg-emerald-800", "transition-colors", "border", "border-emerald-400/30", "rounded-lg", "flex", "items-center", "center", "justify-center"];
+    const buttonStyles = ["flex-none", "w-10", "h-10", "text-white", "bg-emerald-700", "hover:bg-emerald-600", "active:bg-emerald-800", "border", "border-emerald-400/30", "rounded-lg", "flex", "items-center", "center", "justify-center"];
 
 
 
@@ -111,7 +111,9 @@ function main(){
     }
 
     // For when we figure out how to pass in parameters
-    /* function buttonOnClick(){}
+    /* 
+    function buttonOnClick(){}
     
-    function imgOnClick(){} */
+    function imgOnClick(){}
+    */
 }
