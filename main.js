@@ -59,7 +59,7 @@ function main(){
         for(let c of imgStyles){ img.classList.add(c); }
         img.src = product.thumbnail;
 
-        img.addEventListener("click", ()=>{ alert(`Product ID: ${product.id}`)});
+        img.addEventListener("click", (e)=>{ onImgClick(product); });
 
         return img;
     }
@@ -105,15 +105,17 @@ function main(){
         const btn = document.createElement("button");
         for(let c of buttonStyles){ btn.classList.add(c); }
         btn.textContent = buttonText;
-        btn.addEventListener("click", ()=>{ alert(`Product ID: ${product.id} - Title: ${product.title}`); });
+        btn.addEventListener("click", (e)=>{ onButtonClick(product); });
 
         return btn;
     }
 
-    // For when we figure out how to pass in parameters
-    /* 
-    function buttonOnClick(){}
+    function onButtonClick(product){
+        alert(`Product ID: ${product.id} - Title: ${product.title}`);
+    }
     
-    function imgOnClick(){}
-    */
+    function onImgClick(product){
+        alert(`Product ID: ${product.id}`);
+    }
+   
 }
